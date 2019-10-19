@@ -2,7 +2,10 @@ const botSettings = require("./botsettings.json")
 const Discord = require("discord.js");
 const prefix = botSettings.prefix;
 const fs = require("fs");
-
+app.get('*', function (req, res) {
+  const index = path.join(__dirname, 'build', 'index.html');
+  res.sendFile(index);
+});
 const bot = new Discord.Client({disableEveryone: true})
 bot.commands = new Discord.Collection();
 bot.mutes = require("./mutes.json");
